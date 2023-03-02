@@ -1,13 +1,5 @@
 import streamlit as st
 import numpy as np
-import matplotlib.pyplot as plt
-from scipy.io.wavfile import read 
-import IPython.display as ipd
-from scipy.io.wavfile import write
-from scipy.signal import butter
-from scipy.signal import filtfilt
-from scipy import signal
-
 
 csfont = {'fontname':'Times New Roman'}
 
