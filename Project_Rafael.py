@@ -15,7 +15,7 @@ def Perdidas():
     A=np.pi*(D**2)/4
     V=Q/A
     Re=(V*D)/u
-    fi=float(input("Digite el valor de fi:\n"))
+    fi=st.number_input("Digite el valor de fi:\n")
     def i(fi):
         fi1=(1/(-2*np.log10((ks/(3.7*D)+2.51/(Re*np.sqrt(fi))))))**2
         return fi1
