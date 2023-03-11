@@ -3,7 +3,6 @@ import numpy as np
 
 csfont = {'fontname':'Times New Roman'}
 
-st.title("Bienvenido!")
 #--------------------Pilot Part-------------------#
 
 def Perdidas():
