@@ -26,7 +26,6 @@ def Perdidas():
         fi=temp
         fi1=i(temp)
         DE=abs(fi-fi1)
-    print(DE)
     Hf=(fi1*L*(V**2))/(2*D*9.81)
     st.write("El valor del coeficiente de fricción f es: ",fi1)
     st.write("El valor de la perdida de cabeza por friccion es:",Hf)
