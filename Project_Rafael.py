@@ -66,9 +66,9 @@ def Caudal():
 
 dominios=st.sidebar.radio("Proyecto 1 - Hidraulica",("Perdidas","Caudal",),key=1) 
 if dominios=="Perdidas":
-    Caudal()
+    Perdidas()
 
 elif dominios=="Caudal":
-    Perdidas()
+    Caudal()
 
 
