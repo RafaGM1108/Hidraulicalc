@@ -11,7 +11,7 @@ def Perdidas():
     D=st.number_input("Digite el valor del diametro (m):\n")
     ks=st.number_input("Digite el valor de la rugosidad del material (m):\n")
     u=st.number_input("Digite el valor de la viscosidad (m^2/s):\n")
-    E=st.number_input(input("Digite el valor del Error:\n"))
+    E=st.number_input("Digite el valor del Error:\n")
     A=np.pi*(D**2)/4
     V=Q/A
     Re=(V*D)/u
