@@ -6,7 +6,7 @@ csfont = {'fontname':'Times New Roman'}
 #--------------------Pilot Part-------------------#
 
 def Perdidas():
-    Q=st.number_input("Digite el valor del caudal (m^3/s):\n", min_value=1.23e-6, max_value=1.23e-6, value=2.23e6, step=0.00001)
+    Q=st.number_input("Digite el valor del caudal (m^3/s):\n", min_value=1e-8, max_value=1e8, value=1, step=0.00001)
     L=st.number_input("Digite el valor de la longitud (m):\n")
     D=st.number_input("Digite el valor del diametro (m):\n")
     ks=st.number_input("Digite el valor de la rugosidad del material (m):\n")
