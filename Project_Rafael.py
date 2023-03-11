@@ -7,15 +7,15 @@ csfont = {'fontname':'Times New Roman'}
 
 def Perdidas():
     Q=st.number_input("Digite el valor del caudal (m^3/s):\n", min_value=1e-8, max_value=1e8, value=1.00000, step=0.00001)
-    L=st.number_input("Digite el valor de la longitud (m):\n")
-    D=st.number_input("Digite el valor del diametro (m):\n")
-    ks=st.number_input("Digite el valor de la rugosidad del material (m):\n")
-    u=st.number_input("Digite el valor de la viscosidad (m^2/s):\n")
-    E=st.number_input("Digite el valor del Error:\n")
+    L=st.number_input("Digite el valor de la longitud (m):\n", min_value=1e-8, max_value=1e8, value=1.00000, step=0.00001)
+    D=st.number_input("Digite el valor del diametro (m):\n", min_value=1e-8, max_value=1e8, value=1.00000, step=0.00001)
+    ks=st.number_input("Digite el valor de la rugosidad del material (m):\n", min_value=1e-8, max_value=1e8, value=1.00000, step=0.00001)
+    u=st.number_input("Digite el valor de la viscosidad (m^2/s):\n", min_value=1e-8, max_value=1e8, value=1.00000, step=0.00001)
+    E=st.number_input("Digite el valor del Error:\n", min_value=1e-8, max_value=1e8, value=1.00000, step=0.00001)
     A=np.pi*(D**2)/4
     V=Q/A
     Re=(V*D)/u
-    fi=st.number_input("Digite el valor de fi:\n")
+    fi=st.number_input("Digite el valor de fi:\n", min_value=1e-8, max_value=1e8, value=1.00000, step=0.00001)
     def i(fi):
         fi1=(1/(-2*np.log10((ks/(3.7*D)+2.51/(Re*np.sqrt(fi))))))**2
         return fi1
