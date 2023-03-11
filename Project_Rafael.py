@@ -6,8 +6,7 @@ csfont = {'fontname':'Times New Roman'}
 #--------------------Pilot Part-------------------#
 
 def Perdidas():
-    k=st.number_input("Digite el numero de armonicos con los que desea reconstruir la Señal") 
-    Q=st.number_input("Digite el valor del caudal (m^3/s):\n")
+    Q=st.number_input("Digite el valor del caudal (m^3/s):\n"step=0.000001,min_value=0.000001,max_value=1000,value=1)
     L=st.number_input("Digite el valor de la longitud (m):\n")
     D=st.number_input("Digite el valor del diametro (m):\n")
     ks=st.number_input("Digite el valor de la rugosidad del material (m):\n")
@@ -29,8 +28,8 @@ def Perdidas():
         DE=abs(fi-fi1)
     print(DE)
     Hf=(fi1*L*(V**2))/(2*D*9.81)
-    print("El valor del coeficiente de fricción f es: ",fi1)
-    print("El valor de la perdida de cabeza por friccion es:",Hf)
+    st.write("El valor del coeficiente de fricción f es: ",fi1)
+    st.write("El valor de la perdida de cabeza por friccion es:",Hf)
     
 def Caudal():
     l=float(input("Digite el valor de la longitud (m):\n"))
