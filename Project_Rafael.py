@@ -7,7 +7,7 @@ csfont = {'fontname':'Times New Roman'}
 
 def Perdidas():
     Q=st.number_input("Digite el valor del caudal (m^3/s):\n", min_value=1e-8, max_value=1e8, value=1.00000, step=0.00001, format="%.12f")
-    L=st.number_input("Digite el valor de la longitud (m):\n", min_value=1e-8, max_value=1e8, value=1.00000, step=0.00001, format="%12f")
+    L=st.number_input("Digite el valor de la longitud (m):\n", min_value=1e-8, max_value=1e8, value=1.00000, step=0.00001, format="%.12f")
     D=st.number_input("Digite el valor del diametro (m):\n", min_value=1e-8, max_value=1e8, value=1.00000, step=0.00001, format="%.12f")
     ks=st.number_input("Digite el valor de la rugosidad del material (m):\n", min_value=1e-8, max_value=1e8, value=1.00000, step=0.00001, format="%.12f")
     u=st.number_input("Digite el valor de la viscosidad (m^2/s):\n", min_value=1e-8, max_value=1e8, value=1.00000, step=0.00001, format="%.12f")
