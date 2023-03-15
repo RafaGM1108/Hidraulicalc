@@ -94,8 +94,7 @@ def Viscosidad():
         hfi=iteracion[0]
         Q=iteracion[1]*A
         DE=abs(hf-hfi)
-    Cdl=Q
-    st.write("El valor del caudal es:",Cdl)
+    st.write("El valor del caudal es:",Q)
     
 def Diametro():
     Q=st.number_input("Digite el valor del caudal (m^3/s):\n", min_value=1e-8, max_value=1e8, value=1.00000, step=0.00001, format="%.10f")
