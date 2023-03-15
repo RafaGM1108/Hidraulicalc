@@ -36,7 +36,7 @@ def Caudal():
     ks=st.number_input("Digite el valor de la rugosidad de la tuberia (m):\n", min_value=1e-8, max_value=1e3, value=1.00000, step=0.00001, format="%.10f")
     v=st.number_input("Digite el valor de la viscosidad cinematica (m^2/s):\n", min_value=1e-8, max_value=1e3, value=1.00000, step=0.00001, format="%.10f")
     E=st.number_input("Digite el valor del Error:\n", min_value=1e-8, max_value=1e3, value=1.00000, step=0.00001, format="%.10f")
-    km=st.number_input("Digite el valor de las perdidas menores (m):\n", min_value=0, max_value=1e3, value=0, step=0.00001, format="%.10f")
+    km=st.number_input("Digite el valor de las perdidas menores (m):\n",value=0, format="%.10f")
     z2=st.number_input("Digite el valor de z2 (m):\n", min_value=1e-8, max_value=1e3, value=1.00000, step=0.00001, format="%.10f")
     H=st.number_input("Digite el valor de la altura total (m):\n", min_value=1e-8, max_value=1e3, value=1.00000, step=0.00001, format="%.10f")
     hf=H
