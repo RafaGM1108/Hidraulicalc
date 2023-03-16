@@ -138,15 +138,12 @@ def Potencia():
     Cdl=Q
     st.write("El valor del caudal es:",Cdl)
 
-dominios=st.sidebar.radio("Proyecto 1 - Hidraulica",("Perdidas","Caudal","Viscosidad","Diametro","Potencia",),key=1) 
+dominios=st.sidebar.radio("Proyecto 1 - Hidraulica",("Perdidas","Caudal","Diametro","Potencia",),key=1) 
 if dominios=="Perdidas":
     Perdidas()
 
 elif dominios=="Caudal":
     Caudal()
-
-elif dominios=="Viscosidad":
-    Viscosidad()
     
 elif dominios=="Diametro":
     Diametro()
