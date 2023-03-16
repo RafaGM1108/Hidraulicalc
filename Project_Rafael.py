@@ -66,8 +66,7 @@ def Caudal():
         hfi = iteracion[0]
         Q = iteracion[1]*A
         DE = abs(hf-hfi)
-    Qdl=Q
-    st.write("El valor del caudal es:",Qdl)
+    st.write("El valor del caudal es:",Q)
     
     
 def Diametro():
