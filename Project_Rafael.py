@@ -64,10 +64,10 @@ def Caudal():
         temp1 = hfi
         iteracion = i(temp1)    
         hfi = iteracion[0]
-        Q = iteracion[1]*A
+        Vi1=iteracion[1]
         DE = abs(hf-hfi)
+    Q = Vi1*A
     st.write("El valor del caudal es:",Q)
-    
     
 def Diametro():
     Q=st.number_input("Digite el valor del caudal (m^3/s):\n", min_value=0, max_value=1e8, value=1.00000, step=0.00001, format="%.10f")
