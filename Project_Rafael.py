@@ -32,65 +32,56 @@ def Perdidas():
     
     
 def Caudal():
-    # Ingreso de datos por parte del usuario
-    l = st.number_input("Digite el valor de la longitud (m):\n", min_value=1e-10, max_value=1e3, value=1.00000, step=0.00001, format="%.10f")
-    d = st.number_input("Digite el valor del diametro (m):\n", min_value=1e-10, max_value=1e3, value=1.00000, step=0.00001, format="%.10f")
-    ks = st.number_input("Digite el valor de la rugosidad de la tuberia (m):\n", min_value=1e-10, max_value=1e3, value=1.00000, step=0.00001, format="%.10f")
-    v = st.number_input("Digite el valor de la viscosidad cinematica (m^2/s):\n", min_value=1e-10, max_value=1e3, value=1.00000, step=0.00001, format="%.10f")
-    E = st.number_input("Digite el valor del Error:\n", min_value=1e-10, max_value=1e3, value=1.00000, step=0.00001, format="%.10f")
+    l = st.number_input("Digite el valor de la longitud (m):\n", value=1.0000000, format="%.10f")
+    d = st.number_input("Digite el valor del diametro (m):\n", value=1.00000, format="%.10f")
+    ks = st.number_input("Digite el valor de la rugosidad de la tuberia (m):\n", value=1.00000, format="%.10f")
+    v = st.number_input("Digite el valor de la viscosidad cinematica (m^2/s):\n", value=1.00000, format="%.10f")
+    E = st.number_input("Digite el valor del Error:\n",value=1.00000, step=0.00001, format="%.10f")
     km = st.number_input("Digite el valor de las perdidas menores (m):\n", value=0.0000000000, format="%.10f")
-    z2 = st.number_input("Digite el valor de z2 (m):\n", min_value=1e-10, max_value=1e3, value=1.00000, step=0.00001, format="%.10f")
-    H = st.number_input("Digite el valor de la altura total (m):\n", min_value=1e-10, max_value=1e3, value=1.00000, step=0.00001, format="%.10f")
+    z2 = st.number_input("Digite el valor de z2 (m):\n", value=0.0000000000, format="%.10f")
+    H = st.number_input("Digite el valor de la altura total (m):\n", value=1.000000, format="%.10f")
     hf = H
-    
-    # Cálculo del área de la sección transversal del conducto
     A = np.pi*(d**2)/4
-    
-    # Cálculo de la velocidad inicial
-    Vi = (-2*np.sqrt(2*9.81*d*hf/l))*np.log10((ks/(3.7*d))+((2.51*v*np.sqrt(l))/(d*np.sqrt(2*9.81*d*hf))))
-    
-    # Cálculo de la altura inicial
+    Vi = (-2*np.sqrt(2*9.81*d*hf/l))*np.log10((ks/(3.7*d))+((2.51*v*np.sqrt(l))/(d*np.sqrt(2*9.81*d*hf))))    
     hfi = H-z2-km*(Vi**2)/(2*9.81)
-    
-    # Definición de la función para cálculo de la velocidad y altura
     def i(hf):
-        Vi1 = (-2*np.sqrt(2*9.81*d*hf/l))*np.log10((ks/(3.7*d))+((2.51*v*np.sqrt(l))/(d*np.sqrt(2*9.81*d*hf))))
-        hf1 = H-z2-km*(Vi1**2)/(2*9.81)
+        Vi1 = (-2 * np.sqrt(2 * 9.81 * d * hf / l)) * np.log10((ks / (3.7 * d)) + ((2.51 * v * np.sqrt(l)) / (d * np.sqrt(2 * 9.81 * d * hf))))
+        hf1 = H - z2 - km * (Vi1 ** 2) / (2 * 9.81)
         return hf1, Vi1
-    
-    # Cálculo del caudal
-    DE = abs(hf-hfi)
+    DE = abs(hf - hfi)
     while E < DE:
         temp1 = hfi
-        iteracion = i(temp1)    
-        hfi = iteracion[0]
-        Vi=iteracion[1]
-        DE = abs(hf-hfi)
-    Q = Vi*A
+        iteracion = i(temp1)
+        hfi1 = iteracion[0]
+        Vi = iteracion[1]
+        DE = abs(hfi- hfi1)
+        hfi=hfi1
+    Q = Vi * A    
     st.write("El valor del caudal es:",Q)
     
     
 def Diametro():
-    Q=st.number_input("Digite el valor del caudal (m^3/s):\n", min_value=0, max_value=1e8, value=1.00000, step=0.00001, format="%.10f")
-    Δd=st.number_input("Digite el valor del caudal (m^3/s):\n", min_value=0, max_value=1e8, value=1.00000, step=0.00001, format="%.10f")
-    l=st.number_input("Digite el valor de la longitud de la tuberia (m):\n", min_value=0, max_value=1e8, value=1.00000, step=0.00001, format="%.10f")
-    ks=st.number_input("Digite el valor de la rugosidad de la tuberia (m):\n", min_value=0, max_value=1e8, value=1.00000, step=0.00001, format="%.10f")
-    μ=st.number_input("Digite el valor de la viscosidad (pa*s):\n", min_value=0, max_value=1e8, value=1.00000, step=0.00001, format="%.10f")
-    E=st.number_input("Digite el valor del Error:\n", min_value=0, max_value=1e8, value=1.00000, step=0.00001, format="%.10f")
-    km=st.number_input("Digite el valor de las perdidas menores (m):\n", min_value=0, max_value=1e8, value=1.00000, step=0.00001, format="%.10f")
-    ρ=st.number_input("Digite el valor de la densidad del material (kg/m^3):\n", min_value=0, max_value=1e8, value=1.00000, step=0.00001, format="%.10f")
-    z2=st.number_input("Digite el valor de z2 (m):\n", min_value=0, max_value=1e8, value=1.00000, step=0.00001, format="%.10f")
-    H=st.number_input("Digite el valor de la altura total (m):\n", min_value=0, max_value=1e8, value=1.00000, step=0.00001, format="%.10f")
-
-    v=μ/ρ #viscosidad
-    hf=H
-    d=1
-    A=1
-    Vi=(-2*np.sqrt(2*9.81*d*hf/l))*np.log10((ks/(3.7*d))+((2.51*v*np.sqrt(l))/(d*np.sqrt(2*9.81*d*hf))))
+    Qd=st.number_input("Digite el valor del caudal de diseño (m^3/s):\n", value=1.00000, format="%.10f")
+    l=st.number_input("Digite el valor de la longitud de la tuberia (m):\n", value=1.00000, format="%.10f")
+    ks=st.number_input("Digite el valor de la rugosidad de la tuberia (m):\n", value=1.00000, format="%.10f")
+    v=st.number_input("Digite el valor de la viscosidad cinematica (m^2/s):\n", value=1.00000, format="%.10f")
+    km=st.number_input("Digite el valor de las perdidas menores (m):\n", value=0.00000, format="%.10f")
+    z2=st.number_input("Digite el valor de z2 (m):\n", value=0.00000, format="%.10f")
+    H=st.number_input("Digite el valor de la altura total (m):\n", value=0.00000, format="%.10f")
+    hf=H-z2
+    E=0.01
+    Ev=0.01
+    Δd=0.005
+    Δh=0.05
+    di=0.005
+    A=np.pi*(di**2)/4
+    Vi=(-2*np.sqrt(2*9.81*di*hf/l))*np.log10((ks/(3.7*di))+((2.51*v*np.sqrt(l))/(di*np.sqrt(2*9.81*di*hf))))
+    
+    Q=Vi*A
     hfi=H-z2-km*(Vi**2)/(2*9.81)
     
     def i(hf):
-        Vi1=(-2*np.sqrt(2*9.81*d*hf/l))*np.log10((ks/(3.7*d))+((2.51*v*np.sqrt(l))/(d*np.sqrt(2*9.81*d*hf))))
+        Vi1=(-2*np.sqrt(2*9.81*di*hf/l))*np.log10((ks/(3.7*di))+((2.51*v*np.sqrt(l))/(di*np.sqrt(2*9.81*di*hf))))
         hf1=H-z2-km*(Vi1**2)/(2*9.81)
         return hf1,Vi1
 
@@ -102,7 +93,7 @@ def Diametro():
         Q=iteracion[1]*A
         DE=abs(hf-hfi)
     Cdl=Q
-    st.write("El valor del caudal es:",Cdl)
+    st.write("El valor del caudal es:", Cdl)
     
 def Potencia():
     l=st.number_input("Digite el valor de la longitud (m):\n", min_value=1e-8, max_value=1e3, value=1.00000, step=0.00001, format="%.10f")
